@@ -1,0 +1,92 @@
+.hero {
+  min-height: 100vh;
+  padding: 160px 48px 100px;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.headlineGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 32px auto 0;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.rotatingWrapper {
+  min-height: clamp(60px, 8vw, 100px);
+  overflow: visible;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rotatingText {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 42px);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.25;
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  text-wrap: balance;
+  padding: 0 16px;
+}
+
+.fixedLine {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6.5vw, 96px);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-top: 8px; /* Slightly off original specs for breathing room between lines */
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5); /* Fully satisfying the neutral gray request */
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 32px auto 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 44px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 24px 80px;
+  }
+  .rotatingWrapper {
+    min-height: clamp(56px, 12vw, 80px);
+  }
+  .rotatingText {
+    font-size: clamp(14px, 3.2vw, 20px);
+    white-space: normal;
+  }
+  .fixedLine {
+    font-size: clamp(38px, 9vw, 60px);
+    letter-spacing: -1.5px;
+  }
+  .sub {
+    font-size: 16px;
+  }
+}

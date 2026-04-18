@@ -1,0 +1,29 @@
+.scrollSection {
+  position: relative;
+  background: var(--bg-dark);
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.horizontalFlex {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+}
+
+.itemWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

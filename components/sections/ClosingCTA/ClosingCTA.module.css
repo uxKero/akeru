@@ -1,0 +1,42 @@
+.section {
+  padding: 120px 48px;
+  background: var(--bg-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 1.1;
+  margin-bottom: 56px;
+}
+
+.textDark {
+  color: #1a1a1a;
+}
+
+.textGray {
+  color: #7a7a7a;
+  font-weight: 800; /* Keeping it bold but gray as requested */
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaBtn {
+  font-family: var(--font-display);
+  font-size: 16px;
+  padding: 18px 48px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 24px;
+  }
+}

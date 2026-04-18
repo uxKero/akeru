@@ -1,0 +1,33 @@
+.section {
+  padding: 100px 48px;
+  background: var(--bg-dark);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 24px;
+  }
+  .title {
+    font-size: 36px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

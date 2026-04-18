@@ -1,0 +1,114 @@
+.block {
+  padding: 0 48px;
+  width: 100vw;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 100px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 32px;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  perspective: 1000px;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4 / 3;
+  background: var(--color-50);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.mockupHeader {
+  height: 40px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.mockupDots {
+  display: flex;
+  gap: 6px;
+}
+
+.mockupDots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-light);
+}
+
+.mockupBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mockupLine {
+  height: 12px;
+  background: var(--border-light);
+  border-radius: 6px;
+}
+
+@media (max-width: 1024px) {
+  .block {
+    flex-direction: column;
+    padding: 24px;
+    justify-content: center;
+    gap: 24px;
+  }
+  .content {
+    max-width: 100%;
+    text-align: center;
+  }
+  .imageWrapper {
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(36px, 10vw, 64px);
+  }
+  .description {
+    font-size: 16px;
+  }
+}

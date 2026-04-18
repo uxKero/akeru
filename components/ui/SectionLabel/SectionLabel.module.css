@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.center {
+  justify-content: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.line {
+  height: 1px;
+  width: 32px;
+}
+
+.line-accent {
+  background: var(--color-300);
+}
+
+.line-light {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.line-dark {
+  background: var(--ink-3);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+.accent {
+  color: var(--color-300);
+}
+
+.light {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark {
+  color: var(--ink-3);
+}
