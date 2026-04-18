@@ -250,11 +250,28 @@
 }
 
 @media (max-width: 768px) {
+  .wrapper {
+    padding: max(120px, calc(env(safe-area-inset-top, 0px) + 88px)) 16px 64px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
   .row {
     flex-direction: column;
     gap: 24px;
   }
+
   .container {
-    padding: 32px 24px;
+    padding: 32px 20px;
+  }
+
+  .selectionBlock {
+    height: min(52vh, 300px);
+  }
+}
+
+@media (max-width: 380px) {
+  .selectionBlock {
+    height: min(48vh, 260px);
   }
 }
