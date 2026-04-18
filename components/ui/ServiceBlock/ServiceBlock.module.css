@@ -104,6 +104,16 @@
   }
 }
 
+@media (max-width: 767px) {
+  .block {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: clamp(36px, 10vw, 64px);

@@ -41,3 +41,10 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+
+@media (max-width: 768px) {
+  body {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+}

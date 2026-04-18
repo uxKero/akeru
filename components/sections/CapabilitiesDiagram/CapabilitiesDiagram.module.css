@@ -77,10 +77,40 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 60px 24px;
-    display: none; /* In an actual implementation with limited time, complex SVG charts often hide on mobile, but let's just make it scroll or scale */
+    padding: 48px 16px 64px;
   }
+
+  .labels {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
   .container {
-    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .contentOverlay {
+    padding: 10% 2% 8%;
+  }
+
+  .rowTop,
+  .rowBottom {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    row-gap: 10px;
+    padding: 0 1%;
+  }
+
+  .pillLarge,
+  .pillMedium {
+    white-space: normal;
+    text-align: center;
+    font-size: clamp(10px, 2.6vw, 13px);
+    line-height: 1.25;
+    padding: 7px 11px;
+    max-width: min(100%, 200px);
   }
 }

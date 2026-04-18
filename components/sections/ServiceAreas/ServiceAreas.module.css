@@ -27,3 +27,25 @@
   justify-content: center;
   flex-shrink: 0;
 }
+
+/* Solo móvil (<768px): reemplaza el carrusel horizontal por bloques apilados */
+.mobileStack {
+  position: relative;
+  background: var(--bg-dark);
+  padding: 48px 0 72px;
+  overflow-x: hidden;
+}
+
+.mobileStackInner {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.mobileStackBlock {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}

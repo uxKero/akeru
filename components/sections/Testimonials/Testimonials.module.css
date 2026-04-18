@@ -107,6 +107,7 @@
 @media (max-width: 768px) {
   .section {
     padding: 80px 24px;
+    cursor: auto;
   }
   .testimonialContent {
     min-height: 400px;
