@@ -7,6 +7,16 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import ServiceBlock from '@/components/ui/ServiceBlock/ServiceBlock';
 
+const SERVICE_SLUGS = [
+  'sales-customer-service',
+  'internal-operations',
+  'marketing-content',
+  'human-resources',
+  'data-research',
+  'engineering-product',
+  'integrations-automations',
+];
+
 export default function ServiceAreas() {
   const { t } = useLanguage();
   const isMobileLayout = useMediaQuery('(max-width: 767px)');
@@ -28,7 +38,7 @@ export default function ServiceAreas() {
         <div className={styles.mobileStackInner}>
           {t.serviceAreas.map((service, index) => (
             <div key={index} className={styles.mobileStackBlock}>
-              <ServiceBlock service={service} />
+              <ServiceBlock service={service} slug={SERVICE_SLUGS[index]} />
             </div>
           ))}
         </div>
@@ -47,7 +57,7 @@ export default function ServiceAreas() {
         <motion.div style={{ x }} className={styles.horizontalFlex}>
           {t.serviceAreas.map((service, index) => (
             <div key={index} className={styles.itemWrapper}>
-              <ServiceBlock service={service} />
+              <ServiceBlock service={service} slug={SERVICE_SLUGS[index]} />
             </div>
           ))}
         </motion.div>

@@ -9,10 +9,12 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import styles from './Navbar.module.css';
 
 import Link from 'next/link';
+import { useModal } from '@/context/ModalContext';
 
 export default function Navbar() {
   const isScrolled = useNavScroll();
   const { t, toggleLanguage } = useLanguage();
+  const { openModal } = useModal();
   const isNarrow = useMediaQuery('(max-width: 860px)');
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -80,14 +82,13 @@ export default function Navbar() {
           </div>
 
           <div className={styles.actions}>
-            <Link
-              href="/book"
+            <button
+              type="button"
               className={styles.btnCollab}
-              style={{ textDecoration: 'none' }}
-              onClick={closeMenu}
+              onClick={() => { closeMenu(); openModal('booking'); }}
             >
               {t.nav.cta}
-            </Link>
+            </button>
             <button className={styles.langBtn} type="button" onClick={toggleLanguage}>
               {t.nav.langSwitch}
             </button>
@@ -127,14 +128,13 @@ export default function Navbar() {
               </Link>
             </nav>
             <div className={styles.mobileActions}>
-              <Link
-                href="/book"
+              <button
+                type="button"
                 className={styles.btnCollabMobile}
-                style={{ textDecoration: 'none' }}
-                onClick={closeMenu}
+                onClick={() => { closeMenu(); openModal('booking'); }}
               >
                 {t.nav.cta}
-              </Link>
+              </button>
               <button className={styles.langBtnMobile} type="button" onClick={toggleLanguage}>
                 {t.nav.langSwitch}
               </button>

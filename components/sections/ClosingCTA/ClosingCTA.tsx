@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button/Button';
 import { useLanguage } from '@/context/LanguageContext';
+import { useModal } from '@/context/ModalContext';
 import styles from './ClosingCTA.module.css';
-
-import Link from 'next/link';
 
 export default function ClosingCTA() {
   const { t } = useLanguage();
+  const { openModal } = useModal();
   
   return (
     <section className={styles.section} id="contact">
@@ -31,11 +31,9 @@ export default function ClosingCTA() {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <Link href="/book" style={{ textDecoration: 'none' }}>
-          <Button variant="primary" className={styles.ctaBtn}>
-            {t.closingCta.btn}
-          </Button>
-        </Link>
+        <Button variant="primary" className={styles.ctaBtn} onClick={() => openModal('booking')}>
+          {t.closingCta.btn}
+        </Button>
       </motion.div>
     </section>
   );

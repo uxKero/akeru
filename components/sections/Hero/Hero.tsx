@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './Hero.module.css';
 import Button from '@/components/ui/Button/Button';
-
-import Link from 'next/link';
+import { useModal } from '@/context/ModalContext';
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const { t } = useLanguage();
+  const { openModal } = useModal();
   const rotatingLines = t.hero.rotating;
 
   useEffect(() => {
@@ -74,10 +74,8 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.9 }}
       >
-        <Link href="/book" style={{ textDecoration: 'none' }}>
-          <Button variant="accent">{t.hero.btnPrimary}</Button>
-        </Link>
-        <Button variant="ghost-dark">{t.hero.btnSecondary}</Button>
+        <Button variant="accent" onClick={() => openModal('booking')}>{t.hero.btnPrimary}</Button>
+        <Button variant="ghost-dark" onClick={() => openModal('agent-finder')}>{t.hero.btnSecondary}</Button>
       </motion.div>
     </section>
   );
