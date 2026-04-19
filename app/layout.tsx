@@ -2,6 +2,8 @@ import type {Metadata} from 'next';
 import { Outfit, DM_Sans } from 'next/font/google';
 import './globals.css';
 import { LanguageProvider } from '@/context/LanguageContext';
+import { ModalProvider } from '@/context/ModalContext';
+import ModalRoot from '@/components/layout/ModalRoot';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -27,7 +29,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en" className={`${outfit.variable} ${dmSans.variable}`}>
       <body suppressHydrationWarning>
         <LanguageProvider>
-          {children}
+          <ModalProvider>
+            {children}
+            <ModalRoot />
+          </ModalProvider>
         </LanguageProvider>
       </body>
     </html>

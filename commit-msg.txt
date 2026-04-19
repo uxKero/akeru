@@ -1,0 +1,17 @@
+feat(ui): modals, service/case pages, sidebar, agent finder wizard
+
+- Convert all booking CTAs (Navbar, Hero, ClosingCTA) to BookingModal overlay
+- Add AgentFinderModal: 2-step wizard (scale + area) with per-area agent
+  recommendation, back navigation, and Start/Change-answers dual CTAs
+- Service detail pages at /services/[slug]: metrics, capabilities, use-case,
+  timeline, stack; floating Services sidebar shows all 7 entries (current
+  dimmed, others with hover slide-in text effect)
+- Case study pages at /cases/[slug]: challenge, solution steps, results,
+  client quote, meta and CTA sections
+- Fix hardcoded "Ver mas" to i18n serviceBlock.viewMore (EN + ES)
+- Make service card titles clickable links to their detail pages
+- WhyAkeru card loop animations: shimmer stripes, radar spin, grid cell pulse
+- Update AI stack refs to GPT-5 and Claude 4 Sonnet (April 2026)
+- Use generic CRM/ATS references; remove WhatsApp Business API mentions
+- All deployment timelines minimum 2 weeks
+- Remove personal/freelancer scale from agent finder (B2B product only)

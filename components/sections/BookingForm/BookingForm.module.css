@@ -17,6 +17,12 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* In modal the panel already provides the container styling */
+.containerModal {
+  width: 100%;
+  padding: 4px 48px 40px;
+}
+
 .header {
   text-align: center;
   margin-bottom: 48px;
@@ -198,6 +204,36 @@
 }
 
 /* Success View */
+.successViewModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px 48px;
+}
+
+/* Stripped success box for modal (no nested background/border) */
+.successBoxModal {
+  text-align: center;
+  max-width: 420px;
+  padding: 8px 0;
+}
+
+.successBoxModal h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.successBoxModal p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
 .successView {
   min-height: 100vh;
   display: flex;

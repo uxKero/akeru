@@ -39,20 +39,59 @@
   padding: 24px;
 }
 
+/* ── Card 1: Animated stripes (shimmer sweep) ─ */
 .placeholderStripe {
   height: 12px;
-  background: rgba(0, 0, 0, 0.08);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.06) 0%,
+    rgba(0, 0, 0, 0.14) 40%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  background-size: 200% 100%;
   border-radius: 6px;
   width: 100%;
+  animation: shimmerStripe 2.2s ease-in-out infinite;
 }
 
+.placeholderStripe:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+@keyframes shimmerStripe {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* ── Card 2: Spinning radar circle ─────────── */
 .placeholderCircle {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.08);
+  background: conic-gradient(
+    rgba(0, 0, 0, 0.16) 0deg,
+    rgba(0, 0, 0, 0.04) 90deg,
+    rgba(0, 0, 0, 0.16) 180deg,
+    rgba(0, 0, 0, 0.04) 270deg,
+    rgba(0, 0, 0, 0.16) 360deg
+  );
+  animation: spinRadar 3s linear infinite;
 }
 
+@keyframes spinRadar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Card 3: Cascading grid cells ──────────── */
 .placeholderGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -62,8 +101,23 @@
 }
 
 .placeholderGrid div {
-  background: rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   border-radius: 4px;
+  animation: cellPulse 2s ease-in-out infinite;
+}
+
+.placeholderGrid div:nth-child(1) { animation-delay: 0s; }
+.placeholderGrid div:nth-child(2) { animation-delay: 0.3s; }
+.placeholderGrid div:nth-child(3) { animation-delay: 0.6s; }
+.placeholderGrid div:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes cellPulse {
+  0%, 100% {
+    background: rgba(0, 0, 0, 0.06);
+  }
+  50% {
+    background: rgba(0, 0, 0, 0.18);
+  }
 }
 
 .cardTitle {

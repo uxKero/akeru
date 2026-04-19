@@ -2,8 +2,10 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 import Button from '../Button/Button';
 import styles from './ServiceBlock.module.css';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Service {
   title: string;
@@ -12,9 +14,11 @@ interface Service {
 
 interface ServiceBlockProps {
   service: Service;
+  slug: string;
 }
 
-export default function ServiceBlock({ service }: ServiceBlockProps) {
+export default function ServiceBlock({ service, slug }: ServiceBlockProps) {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -34,9 +38,13 @@ export default function ServiceBlock({ service }: ServiceBlockProps) {
         viewport={{ once: true, margin: '-20%' }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <h2 className={styles.title}>{service.title}</h2>
+        <Link href={`/services/${slug}`} className={styles.titleLink}>
+          <h2 className={styles.title}>{service.title}</h2>
+        </Link>
         <p className={styles.description}>{service.description}</p>
-        <Button variant="ghost-dark">Ver más →</Button>
+        <Link href={`/services/${slug}`} style={{ textDecoration: 'none' }}>
+          <Button variant="ghost-dark">{t.serviceBlock.viewMore}</Button>
+        </Link>
       </motion.div>
 
       <div className={styles.imageWrapper}>

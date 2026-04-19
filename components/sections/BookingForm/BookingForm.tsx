@@ -11,7 +11,12 @@ import Link from 'next/link';
 
 import { agentCategories } from '@/data/agentCategories';
 
-export default function BookingForm() {
+interface BookingFormProps {
+  isModal?: boolean;
+  onClose?: () => void;
+}
+
+export default function BookingForm({ isModal = false, onClose }: BookingFormProps) {
   const { language, t } = useLanguage();
   const bk = t.booking;
 
@@ -61,36 +66,43 @@ export default function BookingForm() {
   };
 
   if (isSubmitted) {
-    return (
-      <div className={styles.successView}>
-        <motion.div 
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className={styles.successBox}
-        >
-          <div className={styles.checkCircle}>
-            <Check size={32} />
-          </div>
-          <h2>{bk.successTitle}</h2>
-          <p>{bk.successText}</p>
-          <div className={styles.backBtn}>
+    const innerSuccess = (boxClass: string) => (
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className={boxClass}
+      >
+        <div className={styles.checkCircle}>
+          <Check size={32} />
+        </div>
+        <h2>{bk.successTitle}</h2>
+        <p>{bk.successText}</p>
+        <div className={styles.backBtn}>
+          {onClose ? (
+            <Button variant="ghost-dark" onClick={onClose}>{bk.backHome}</Button>
+          ) : (
             <Link href="/" style={{ textDecoration: 'none' }}>
               <Button variant="ghost-dark">{bk.backHome}</Button>
             </Link>
-          </div>
-        </motion.div>
-      </div>
+          )}
+        </div>
+      </motion.div>
     );
+
+    if (isModal) {
+      return <div className={styles.successViewModal}>{innerSuccess(styles.successBoxModal)}</div>;
+    }
+
+    return <div className={styles.successView}>{innerSuccess(styles.successBox)}</div>;
   }
 
-  return (
-    <section className={styles.wrapper}>
-      <motion.div 
-        className={styles.container}
-        initial={{ opacity: 0, scale: 0.95, y: 30 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} // smooth custom cubic-bezier
-      >
+  const formContent = (
+    <motion.div
+      className={isModal ? styles.containerModal : styles.container}
+      initial={{ opacity: 0, scale: 0.95, y: 30 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
         <div className={styles.header}>
           <h1 className={styles.title}>{bk.title}</h1>
           <p className={styles.subtitle}>{bk.subtitle}</p>
@@ -241,6 +253,15 @@ export default function BookingForm() {
           </div>
         </form>
       </motion.div>
+  );
+
+  if (isModal) {
+    return formContent;
+  }
+
+  return (
+    <section className={styles.wrapper}>
+      {formContent}
     </section>
   );
 }

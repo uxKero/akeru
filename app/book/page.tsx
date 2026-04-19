@@ -1,11 +1,5 @@
-import BookingForm from '@/components/sections/BookingForm/BookingForm';
-import Navbar from '@/components/layout/Navbar';
+import { redirect } from 'next/navigation';
 
 export default function BookPage() {
-  return (
-    <main>
-      <Navbar />
-      <BookingForm />
-    </main>
-  );
+  redirect('/');
 }

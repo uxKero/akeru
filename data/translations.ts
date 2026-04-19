@@ -250,6 +250,9 @@ export const translations = {
       text2: "We'll find the solution together.",
       btn: "Book a free consultation"
     },
+    serviceBlock: {
+      viewMore: "Learn more →"
+    },
     footer: {
       tagline: "AI Agents for business · LATAM"
     }
@@ -502,6 +505,9 @@ export const translations = {
       text1: "¿No sabes por dónde empezar?",
       text2: "Encontramos la solución juntos.",
       btn: "Agendar consulta gratuita"
+    },
+    serviceBlock: {
+      viewMore: "Ver más →"
     },
     footer: {
       tagline: "Agentes de IA para empresas · LATAM"
