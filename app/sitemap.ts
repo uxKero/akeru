@@ -3,7 +3,7 @@ import { servicesDetail } from '@/data/servicesDetail';
 import { casesDetail } from '@/data/casesDetail';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.APP_URL || 'https://akeru.ai';
+  const baseUrl = process.env.APP_URL || 'https://akeru.agency';
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [

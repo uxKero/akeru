@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const caseData = casesDetail.find(c => c.slug === slug);
   if (!caseData) return {};
 
-  const baseUrl = process.env.APP_URL || 'https://akeru.ai';
+  const baseUrl = process.env.APP_URL || 'https://akeru.agency';
   const title = `${caseData.title.en} — Case Study`;
   const description = caseData.tagline.en;
   const url = `${baseUrl}/cases/${slug}`;

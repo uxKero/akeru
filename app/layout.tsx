@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
   display: 'swap',
 });
 
-const BASE_URL = process.env.APP_URL || 'https://akeru.ai';
+const BASE_URL = process.env.APP_URL || 'https://akeru.agency';
 
 export const viewport: Viewport = {
   themeColor: '#000000',

@@ -52,7 +52,7 @@ export async function POST(request: Request) {
           </table>
 
           <hr style="border: 1px solid #222; margin-top: 24px;" />
-          <p style="color: #555; font-size: 12px; margin-top: 16px;">Enviado desde akeru.ai</p>
+          <p style="color: #555; font-size: 12px; margin-top: 16px;">Enviado desde akeru.agency</p>
         </div>
       `,
     });

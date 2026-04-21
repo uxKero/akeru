@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(ts|tsx|js|jsx\\)$\")",
+      "Bash(xargs grep *)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "mcp__7e619873-b8de-4f72-abec-2670e9466eca__list_teams",
+      "mcp__7e619873-b8de-4f72-abec-2670e9466eca__list_projects",
+      "Bash(vercel env *)",
+      "Read(//c/Users/Pc/.local/share/com.vercel.cli/**)",
+      "Read(//c/Users/Pc/.vercel/**)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('token',''\\)[:10]+'...'\\)\")",
+      "Bash(cmd /c \"dir %APPDATA%\\\\Vercel 2>nul\")",
+      "Bash(cmd /c \"type %APPDATA%\\\\Vercel\\\\auth.json 2>nul\")",
+      "Bash(gh pr create --title 'feat: contact form email, SEO completo y favicon' --body ' *)",
+      "Bash(sed -i 's|https://akeru\\\\.ai|https://akeru.agency|g' .env.example app/layout.tsx app/sitemap.ts app/api/contact/route.ts app/robots.ts \"app/cases/[slug]/page.tsx\" \"app/services/[slug]/page.tsx\")",
+      "Bash(sed -i 's|akeru\\\\.ai|akeru.agency|g' app/api/contact/route.ts)"
+    ]
+  }
+}

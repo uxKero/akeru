@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = servicesDetail.find(s => s.slug === slug);
   if (!service) return {};
 
-  const baseUrl = process.env.APP_URL || 'https://akeru.ai';
+  const baseUrl = process.env.APP_URL || 'https://akeru.agency';
   const title = service.title.en;
   const description = service.tagline.en;
   const url = `${baseUrl}/services/${slug}`;
