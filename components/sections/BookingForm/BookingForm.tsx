@@ -31,6 +31,8 @@ export default function BookingForm({ isModal = false, onClose }: BookingFormPro
 
   const [activeCategoryView, setActiveCategoryView] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const categoriesList = agentCategories[language] || agentCategories.en;
 
@@ -59,10 +61,29 @@ export default function BookingForm({ isModal = false, onClose }: BookingFormPro
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Usually submit to an API here
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+      setIsSubmitted(true);
+    } catch {
+      setSubmitError(
+        language === 'es'
+          ? 'Hubo un error al enviar. Intentá de nuevo.'
+          : 'Something went wrong. Please try again.'
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
@@ -246,9 +267,14 @@ export default function BookingForm({ isModal = false, onClose }: BookingFormPro
             )}
           </AnimatePresence>
 
+          {submitError && (
+            <p style={{ color: '#ff6b6b', fontSize: '14px', textAlign: 'center', marginBottom: '8px' }}>
+              {submitError}
+            </p>
+          )}
           <div className={styles.submitRow}>
-            <Button variant="accent" type="submit" className={styles.submitBtn}>
-              {bk.submit}
+            <Button variant="accent" type="submit" className={styles.submitBtn} disabled={isLoading}>
+              {isLoading ? (language === 'es' ? 'Enviando...' : 'Sending...') : bk.submit}
             </Button>
           </div>
         </form>
